@@ -3,5 +3,6 @@
   "dest": "../../dist/portal-shell",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "assets": ["./assets", "./package.json"]
 }

@@ -1,20 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'lib-portal-shell',
   template: `
-    <p>
-      portal-shell works!
-    </p>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"
+      rel="stylesheet">
+  <lib-header></lib-header> 
+    <section class="content">
+      <ng-content></ng-content>
+    </section>
+  <lib-footer></lib-footer>
   `,
-  styles: [
-  ]
+  styleUrls: ['./portal-shell.component.scss'],
 })
-export class PortalShellComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class PortalShellComponent {}

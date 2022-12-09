@@ -8,6 +8,9 @@
     "inlineSources": true,
     "types": []
   },
+  "include": [
+    "package.json"
+  ],
   "exclude": [
     "src/test.ts",
     "**/*.spec.ts"

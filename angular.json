@@ -8,6 +8,13 @@
       "root": "projects/portal-shell",
       "sourceRoot": "projects/portal-shell/src",
       "prefix": "lib",
+      "schematics": {
+        "@schematics/angular:component": {
+          "changeDetection": "OnPush",
+          "inlineTemplate": true,
+          "inlineStyle": true
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
