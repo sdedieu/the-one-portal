@@ -1,11 +1,10 @@
 import { JsonPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Application } from '../../shared/models/application';
 
 @Component({
   selector: 'lib-application-card',
   standalone: true,
-  imports: [JsonPipe],
   template: `
   <div class="container">
     <div class="overlay">
