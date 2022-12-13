@@ -3,10 +3,10 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "portal-shell": {
+    "the-one-portal-shell": {
       "projectType": "library",
-      "root": "projects/portal-shell",
-      "sourceRoot": "projects/portal-shell/src",
+      "root": "projects/the-one-portal-shell",
+      "sourceRoot": "projects/the-one-portal-shell/src",
       "prefix": "lib",
       "schematics": {
         "@schematics/angular:component": {
@@ -19,14 +19,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/portal-shell/ng-package.json"
+            "project": "projects/the-one-portal-shell/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/portal-shell/tsconfig.lib.prod.json"
+              "tsConfig": "projects/the-one-portal-shell/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/portal-shell/tsconfig.lib.json"
+              "tsConfig": "projects/the-one-portal-shell/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -34,9 +34,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/portal-shell/src/test.ts",
-            "tsConfig": "projects/portal-shell/tsconfig.spec.json",
-            "karmaConfig": "projects/portal-shell/karma.conf.js"
+            "main": "projects/the-one-portal-shell/src/test.ts",
+            "tsConfig": "projects/the-one-portal-shell/tsconfig.spec.json",
+            "karmaConfig": "projects/the-one-portal-shell/karma.conf.js"
           }
         }
       }

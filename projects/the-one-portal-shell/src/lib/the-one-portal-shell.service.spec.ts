@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PortalShellService } from './portal-shell.service';
+import { PortalShellService } from './the-one-portal-shell.service';
 
 describe('PortalShellService', () => {
   let service: PortalShellService;

@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PortalShellComponent } from './portal-shell.component';
+import { PortalShellComponent } from './the-one-portal-shell.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { CONFIG, Config } from './config/config';

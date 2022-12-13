@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "name": "portal-shell",
+  "name": "the-one-portal-shell",
   "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^14.0.0",

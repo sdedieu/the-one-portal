@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PortalShellComponent } from './portal-shell.component';
+import { PortalShellComponent } from './the-one-portal-shell.component';
 
 describe('PortalShellComponent', () => {
   let component: PortalShellComponent;
@@ -8,9 +8,9 @@ describe('PortalShellComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PortalShellComponent ]
+      declarations: [PortalShellComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(PortalShellComponent);
     component = fixture.componentInstance;
