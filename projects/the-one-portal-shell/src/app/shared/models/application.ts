@@ -3,4 +3,5 @@ export interface Application {
     img: string;
     description: string;
     url: string;
+    shortName: string;
 }

@@ -47,12 +47,12 @@ export class HeaderComponent implements OnInit {
   user$: Observable<User | null> = EMPTY;
   route$: Observable<string> = EMPTY;
 
-  private _config = inject(CONFIG);
+//  private _config = inject(CONFIG);
   private _authService = inject(AuthService);
   private _router = inject(Router);
 
   ngOnInit(): void {
-    this.applicationName = this._config.appName;
+  //  this.applicationName = this._config.appName;
     this.user$ = this._authService.getConnectedUser();
     this.route$ = this._router.events.pipe(
       filter(event => event instanceof NavigationEnd), 

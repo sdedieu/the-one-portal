@@ -7,7 +7,7 @@ import { AuthService, User } from '../auth';
   template: `
   <ng-container *ngIf="connectedUser$ | async as user">
     <div class="grid">
-      <a class="card" [href]="application.url" *ngFor="let application of user.applications">
+      <a class="card" [routerLink]="['/' + application.shortName]" *ngFor="let application of user.applications">
         <lib-application-card [application]="application"></lib-application-card>
       </a>
     </div>

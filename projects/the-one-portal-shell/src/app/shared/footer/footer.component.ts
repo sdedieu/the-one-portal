@@ -37,7 +37,7 @@ export class FooterComponent implements OnInit {
   applicationNameAndVersion: string = '';
   route$: Observable<string> = EMPTY;
 
-  private _config = inject(CONFIG);
+//  private _config = inject(CONFIG);
   private _router = inject(Router);
 
   ngOnInit(): void {
@@ -45,7 +45,7 @@ export class FooterComponent implements OnInit {
       filter(event => event instanceof NavigationEnd), 
       map(event => (event as NavigationEnd).url.replace('/', ''))
     );
-    this.applicationNameAndVersion = `${this._config.appName}: v${this._config.version}`
+ //   this.applicationNameAndVersion = `${this._config.appName}: v${this._config.version}`
   }
 
 }
