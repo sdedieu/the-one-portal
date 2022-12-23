@@ -3,24 +3,37 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/one-portal-shell/src",
-  "prefix": "the-one-portal",
+  "prefix": "one-portal-shell",
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/one-portal-shell",
         "index": "apps/one-portal-shell/src/index.html",
         "main": "apps/one-portal-shell/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/one-portal-shell/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/one-portal-shell/src/favicon.ico",
           "apps/one-portal-shell/src/assets"
         ],
-        "styles": ["apps/one-portal-shell/src/styles.scss"],
-        "scripts": []
+        "styles": [
+          "@angular/material/prebuilt-themes/indigo-pink.css",
+          "apps/one-portal-shell/src/styles.scss",
+          "shared/assets/theme.scss",
+          "shared/assets/styles.scss"
+        ],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/one-portal-shell/webpack.config.js"
+        },
+        "commonChunk": false
       },
       "configurations": {
         "production": {
@@ -36,7 +49,10 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/one-portal-shell/webpack.prod.config.js"
+          }
         },
         "development": {
           "buildOptimizer": false,
@@ -50,7 +66,7 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@nrwl/angular:webpack-dev-server",
       "configurations": {
         "production": {
           "browserTarget": "one-portal-shell:build:production"
@@ -59,17 +75,24 @@
           "browserTarget": "one-portal-shell:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4200,
+        "publicHost": "http://localhost:4200"
+      }
     },
     "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "executor": "ngx-build-plus:extract-i18n",
       "options": {
-        "browserTarget": "one-portal-shell:build"
+        "browserTarget": "one-portal-shell:build",
+        "extraWebpackConfig": "apps/one-portal-shell/webpack.config.js"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
         "lintFilePatterns": [
           "apps/one-portal-shell/**/*.ts",
@@ -79,7 +102,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/one-portal-shell/jest.config.ts",
         "passWithNoTests": true
