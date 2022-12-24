@@ -32,7 +32,7 @@ import { CONFIG } from '../../config/config';
 })
 export class FooterComponent implements OnInit {
 
-  version = 'v1.0.0';
+  version = 'v2.1.0';
 
   applicationNameAndVersion: string = '';
   route$: Observable<string> = EMPTY;
