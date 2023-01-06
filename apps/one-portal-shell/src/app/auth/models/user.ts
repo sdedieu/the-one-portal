@@ -1,4 +1,5 @@
-import { Application } from "../../shared/models/application";
+import { Application } from "@the-one-portal/one-portal-shell-library";
+
 
 export interface User {
     name: string;

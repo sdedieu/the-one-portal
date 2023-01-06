@@ -6,13 +6,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { OnePortalShellLibraryModule } from '@the-one-portal/one-portal-shell-library';
+import { OneUiLibraryModule } from '@the-one-portal/one-ui-library';
 import { HomeComponent } from './home/home.component';
 
 import { routes } from './routes';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { PortalShellComponent } from './the-one-portal-shell.component';
-import { ApplicationCardComponent } from './ui/application-card/application-card.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +23,15 @@ import { ApplicationCardComponent } from './ui/application-card/application-card
     HomeComponent
   ],
   imports: [
+    OnePortalShellLibraryModule,
+    OneUiLibraryModule,
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     MatIconModule,
-    MatChipsModule,
-    ApplicationCardComponent
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [PortalShellComponent]

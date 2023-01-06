@@ -1,18 +1,18 @@
 import { JsonPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { Application } from '../../shared/models/application';
+import { Application } from '../../models/application';
 
 @Component({
   selector: 'one-portal-shell-card',
-  standalone: true,
-  imports: [JsonPipe],
   template: `
+  <one-ui-card>
   <div class="container">
     <div class="overlay">
       <h1>{{application.name}}</h1>
     </div>
     <img [src]="application.img" width="100%" />
   </div>
+  </one-ui-card>
   `,
   styles: [`
     div.container {

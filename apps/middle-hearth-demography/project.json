@@ -26,8 +26,7 @@
         "styles": [
           "@angular/material/prebuilt-themes/indigo-pink.css",
           "apps/middle-hearth-demography/src/styles.scss",
-          "shared/assets/theme.scss",
-          "shared/assets/styles.scss"
+          "shared/assets/theme.scss"
         ],
         "scripts": [],
         "customWebpackConfig": {

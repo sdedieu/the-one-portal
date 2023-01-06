@@ -2,14 +2,17 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { NgFor } from '@angular/common';
 import { CharacterCardComponent } from '../../ui/character-card/character-card.component';
 import { Characters } from '../../interfaces/character';
+import { OneUiLibraryModule } from '@the-one-portal/one-ui-library';
 
 @Component({
   selector: 'mhd-character-list',
   standalone: true,
-  imports: [NgFor, CharacterCardComponent],
+  imports: [NgFor, CharacterCardComponent, OneUiLibraryModule],
   template: `
   <div class="grid">
-    <mhd-character-card class="card" *ngFor="let character of characters" [character]="character"></mhd-character-card>
+    <one-ui-card *ngFor="let character of characters" >
+      <mhd-character-card [character]="character"></mhd-character-card>
+    </one-ui-card>
   </div>
   `,
   styles: [`

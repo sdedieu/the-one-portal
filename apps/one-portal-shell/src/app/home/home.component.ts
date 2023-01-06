@@ -7,7 +7,7 @@ import { AuthService, User } from '../auth';
   template: `
   <ng-container *ngIf="connectedUser$ | async as user">
     <div class="grid">
-      <a class="card" [routerLink]="['/' + application.shortName]" *ngFor="let application of user.applications">
+      <a [routerLink]="['/' + application.shortName]" *ngFor="let application of user.applications">
         <one-portal-shell-card [application]="application"></one-portal-shell-card>
       </a>
     </div>
@@ -37,7 +37,7 @@ import { AuthService, User } from '../auth';
       }
     }
 
-    a.card {
+    div.grid > a {
       padding: 0;
       text-decoration: none;
       color: inherit;

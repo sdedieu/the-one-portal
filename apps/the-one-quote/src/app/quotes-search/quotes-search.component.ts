@@ -11,11 +11,12 @@ import { Character, Characters } from '../interfaces/character';
 import { Movie, Movies } from '../interfaces/movie';
 import { Quotes } from '../interfaces/quote';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { OneUiLibraryModule } from '@the-one-portal/one-ui-library';
 
 @Component({
   selector: 'toq-search',
   standalone: true,
-  imports: [CommonModule, MatFormFieldModule, MatInputModule, MatSelectModule, ReactiveFormsModule],
+  imports: [CommonModule, MatFormFieldModule, MatInputModule, MatSelectModule, ReactiveFormsModule, OneUiLibraryModule],
   template: `
     <section>
      <form [formGroup]="filters" class="filter-area">
@@ -36,7 +37,9 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
     </section>
 
     <section class="card-list">
-      <div class="card" *ngFor="let quote of quotes$ | async">{{quote.dialog}}</div>
+      <one-ui-card *ngFor="let quote of quotes$ | async">
+        <div>{{quote.dialog}}</div>
+      </one-ui-card>
     </section>
   `,
   styles: [`
@@ -57,7 +60,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
       align-items: center;
     }
 
-    section.card-list > div.card {
+    section.card-list ::ng-deep .card {
       padding: 1rem 2rem 1rem 2rem;
       margin-bottom: 0.5rem;
     }
