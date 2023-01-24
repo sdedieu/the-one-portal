@@ -1,12 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { LocalStorageService } from '@the-one-portal/one-ui-library';
 import { concatMap, of, scan } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { Observable, tap, shareReplay } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Quotes } from '../interfaces/quote';
-import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'

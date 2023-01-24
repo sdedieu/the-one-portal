@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { LocalStorageService } from '@the-one-portal/one-ui-library';
 import { Observable, tap, map, shareReplay, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Movies } from '../interfaces/movie';
-import { LocalStorageService } from './local-storage.service';
 import { LotrQuoteService } from './lotr-quote.service';
 
 @Injectable({
