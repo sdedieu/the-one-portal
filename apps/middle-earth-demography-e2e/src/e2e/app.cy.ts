@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('middle-hearth-demography', () => {
+describe('middle-earth-demography', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
@@ -8,6 +8,6 @@ describe('middle-hearth-demography', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome middle-hearth-demography');
+    getGreeting().contains('Welcome middle-earth-demography');
   });
 });
