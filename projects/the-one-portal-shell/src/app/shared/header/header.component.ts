@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router, UrlSegment } from '@angular/router';
-import { EMPTY, Observable } from 'rxjs';
+import { EMPTY, fromEvent, Observable } from 'rxjs';
 import { filter, map, tap } from 'rxjs/operators';
 import { AuthService } from '../../auth';
 import { User } from '../../auth/models/user';
@@ -16,7 +16,7 @@ import { CONFIG } from '../../config/config';
           <mat-icon aria-hidden="false" aria-label="home icon" class="material-icons-outlined">home</mat-icon>
       </a> 
       <a routerLink="">
-        <ng-container *ngIf="applicationName; else justHeader">
+        <ng-container *ngIf="applicationName$ | async as applicationName; else justHeader">
           <h1>Header of {{applicationName}}</h1>
         </ng-container>
         <ng-template #justHeader>
@@ -42,22 +42,19 @@ import { CONFIG } from '../../config/config';
 })
 export class HeaderComponent implements OnInit {
 
-  applicationName: string = '';
+  applicationName$: Observable<string> = EMPTY;
 
   user$: Observable<User | null> = EMPTY;
   route$: Observable<string> = EMPTY;
-
-//  private _config = inject(CONFIG);
+  
   private _authService = inject(AuthService);
   private _router = inject(Router);
 
   ngOnInit(): void {
-  //  this.applicationName = this._config.appName;
     this.user$ = this._authService.getConnectedUser();
-    this.route$ = this._router.events.pipe(
-      filter(event => event instanceof NavigationEnd), 
-      map(event => (event as NavigationEnd).url.replace('/', ''))
-    );
+
+    this.applicationName$ = fromEvent<CustomEvent>(document, 'app-loaded').pipe(
+      map(event => event.detail));
   }
 
   logout() {
