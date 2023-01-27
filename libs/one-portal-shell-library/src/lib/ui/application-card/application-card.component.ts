@@ -20,6 +20,7 @@ import { Application } from '../../models/application';
       display: flex;
       align-items: stretch;
       justify-content: stretch;
+      box-shadow: 0 20px 25px -5px rgb(255 0 0 / 0.1), 0 8px 10px -6px rgb(255 0 0 / 0.1);
     }
 
     div.container:hover > div.overlay {
