@@ -12,7 +12,6 @@ import { CONFIG } from '../../config/config';
   template: `
   <header>
     <ng-container *ngIf="(combined$ | async) as combined">
-      <!-- *ngIf="combined.route !== 'home' else home_title" -->
       <ng-container [ngSwitch]="combined.route">
         <ng-container *ngSwitchCase="'home'">
           <h1>Select your Application</h1>
