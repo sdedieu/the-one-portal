@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router, UrlSegment } from '@angular/router';
-import { EMPTY, Observable } from 'rxjs';
-import { filter, map, tap } from 'rxjs/operators';
+import { combineLatest, EMPTY, fromEvent, Observable } from 'rxjs';
+import { filter, map, startWith, tap } from 'rxjs/operators';
 import { AuthService } from '../../auth';
 import { User } from '../../auth/models/user';
 import { CONFIG } from '../../config/config';
@@ -11,22 +11,29 @@ import { CONFIG } from '../../config/config';
   selector: 'one-portal-shell-header',
   template: `
   <header>
-    <ng-container *ngIf="(route$ | async) !== 'home' else home_title">
-      <a routerLink="home">
-          <mat-icon aria-hidden="false" aria-label="home icon" class="material-icons-outlined">home</mat-icon>
-      </a> 
-      <a routerLink="">
-        <ng-container *ngIf="applicationName; else justHeader">
-          <h1>Header of {{applicationName}}</h1>
+    <ng-container *ngIf="(combined$ | async) as combined">
+      <ng-container [ngSwitch]="combined.route">
+        <ng-container *ngSwitchCase="'home'">
+          <h1>Select your Application</h1>
         </ng-container>
-        <ng-template #justHeader>
-          <h1>Header</h1>
-        </ng-template>
-      </a>
+        <ng-container *ngSwitchCase="'auth/login'">
+          <h1>Login</h1>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+        <a routerLink="home">
+          <mat-icon aria-hidden="false" aria-label="home icon" class="material-icons-outlined">home</mat-icon>
+        </a> 
+        <a routerLink="">
+          <ng-container *ngIf="combined.appName; else justHeader">
+            <h1>Header of {{combined.appName}}</h1>
+          </ng-container>
+          <ng-template #justHeader>
+            <h1>Header</h1>
+          </ng-template>
+        </a>
+        </ng-container>
+      </ng-container>
     </ng-container>
-    <ng-template #home_title>
-      <h1>Select your Application</h1>
-    </ng-template>
     <ng-container *ngIf="user$ | async; else not_connected">
       <mat-icon aria-hidden="false" aria-label="logout icon" class="material-icons-outlined" (click)="logout()">logout</mat-icon>
     </ng-container>
@@ -42,22 +49,29 @@ import { CONFIG } from '../../config/config';
 })
 export class HeaderComponent implements OnInit {
 
-  applicationName = '';
+  combined$: Observable<{appName: string, route: string}> = EMPTY;
+  applicationName$: Observable<string> = EMPTY;
 
   user$: Observable<User | null> = EMPTY;
   route$: Observable<string> = EMPTY;
 
-//  private _config = inject(CONFIG);
   private _authService = inject(AuthService);
   private _router = inject(Router);
 
   ngOnInit(): void {
-  //  this.applicationName = this._config.appName;
     this.user$ = this._authService.getConnectedUser();
-    this.route$ = this._router.events.pipe(
-      filter(event => event instanceof NavigationEnd), 
-      map(event => (event as NavigationEnd).url.replace('/', ''))
+ 
+    this.applicationName$ = fromEvent<CustomEvent>(document, 'app-loaded').pipe(
+      map(event => event.detail),
+      startWith('')
     );
+
+    this.route$ = this._router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      map(event => (event as NavigationEnd).urlAfterRedirects.replace('/', ''))
+    );
+
+    this.combined$ = combineLatest([this.applicationName$, this.route$]).pipe(map(([appName, route]) => ({appName, route})))
   }
 
   logout() {
