@@ -20,7 +20,7 @@ import { CharacterRaceFilter } from '../../interfaces/character';
   <div class="filters-grid">
     <mat-form-field appearance="outline">
       <mat-label>Races</mat-label>
-      <mat-select [formControl]="races" multiple>
+      <mat-select [formControl]="races" name="races" multiple>
         <mat-option *ngFor="let race of raceList" [value]="race">{{race}}</mat-option>
         <mat-option value="others">Others</mat-option>
       </mat-select>

@@ -88,7 +88,7 @@ export class QuotesSearchComponent implements OnInit {
     this.quotes$ = this.filters.valueChanges.pipe(
       map(filters => {
         if (!filters.selectedCharacter || !filters.selectedMovie) return [];
-        return filters.selectedCharacter?.quotes.filter(quote => filters.selectedMovie?._id === quote.movie)
+        return filters.selectedCharacter?.quotes?.filter(quote => filters.selectedMovie?._id === quote.movie)
       })
     )
   }

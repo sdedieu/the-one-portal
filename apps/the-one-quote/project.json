@@ -7,16 +7,12 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:webpack-browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/the-one-quote",
         "index": "apps/the-one-quote/src/index.html",
         "main": "apps/the-one-quote/src/main.ts",
-        "polyfills": [
-          "zone.js"
-        ],
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/the-one-quote/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -82,8 +78,8 @@
       },
       "defaultConfiguration": "development",
       "options": {
-        "port": 4202,
-        "publicHost": "http://localhost:4202"
+        "port": 4222,
+        "publicHost": "http://localhost:4222"
       }
     },
     "extract-i18n": {
@@ -95,9 +91,7 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
           "apps/the-one-quote/**/*.ts",
@@ -107,9 +101,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "apps/the-one-quote/jest.config.ts",
         "passWithNoTests": true
