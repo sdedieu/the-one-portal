@@ -77,8 +77,8 @@
 					},
 					"defaultConfiguration": "development",
 					"options": {
-						"port": 4200,
-						"publicHost": "http://localhost:4200",
+						"port": 4210,
+						"publicHost": "http://localhost:4210",
 						"extraWebpackConfig": "projects/the-one-portal-shell/webpack.config.js"
 					}
 				},

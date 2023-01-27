@@ -5,13 +5,13 @@ import { loadRemoteModule } from '@angular-architects/module-federation';
 import { PortalPageResolver } from "./resolvers/portal-page.resolver";
 
 export const routes: Routes = [
-  { path: 'home', canActivate: [IsLoggedInGuard], component: HomeComponent, resolve: {appName: PortalPageResolver} },
-  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule), resolve: {appName: PortalPageResolver} },
+  { path: 'home', canActivate: [IsLoggedInGuard], component: HomeComponent, resolve: { appName: PortalPageResolver } },
+  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule), resolve: { appName: PortalPageResolver } },
   {
     path: 'demography', loadChildren: () =>
       loadRemoteModule({
         type: 'module',
-        remoteEntry: 'http://localhost:4201/remoteEntry.js',
+        remoteEntry: 'http://localhost:4211/remoteEntry.js',
         exposedModule: './app'
       }).then(m => m.routes)
   },
@@ -19,7 +19,7 @@ export const routes: Routes = [
     path: 'quotes', loadChildren: () =>
       loadRemoteModule({
         type: 'module',
-        remoteEntry: 'http://localhost:4202/remoteEntry.js',
+        remoteEntry: 'http://localhost:4212/remoteEntry.js',
         exposedModule: './app'
       }).then(m => m.routes)
   },
