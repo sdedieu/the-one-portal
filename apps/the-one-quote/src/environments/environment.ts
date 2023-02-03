@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  appName: 'The one quote',
-  secretToken: 'oO8hUoITRYivvAJOiw6h'
+  appName: 'The one quote'
 };
 
 /*

@@ -19,14 +19,13 @@ export class LotrMovieService {
 
   getAll(): Observable<Movies> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${environment.secretToken}`
+      'Content-Type': 'application/json'
     })
     if (!this._cachedMovies$) {
       const stored = this._localStorageService.get<Movies>('movies');
       this._cachedMovies$ = (stored
         ? of(stored)
-        : this._http.get<{ docs: Movies }>('https://the-one-api.dev/v2/movie', { headers }).pipe(
+        : this._http.get<{ docs: Movies }>('http://localhost:3000/movies', { headers }).pipe(
           map(res => res.docs),
           tap(movies => this._localStorageService.set('movies', movies))
         )).pipe(shareReplay(1))

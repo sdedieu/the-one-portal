@@ -22,13 +22,12 @@ export class LotrCharacterService {
   getAllWithQuotes(): Observable<Characters> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${environment.secretToken}`
     })
     if (!this._cachedCharacters$) {
       const stored = this._localStorageService.get<Characters>('characters');
       this._cachedCharacters$ = (stored
         ? of(stored)
-        : this._http.get<{ docs: Characters }>('https://the-one-api.dev/v2/character', { headers }).pipe(
+        : this._http.get<{ docs: Characters }>('http://localhost:3000/character', { headers }).pipe(
           map(res => res.docs.map(c => ({ ...c, quotes: [] }))),
           combineLatestWith(this._lotrQuoteService.getAll()),
           map(([characters, quotes]) => quotes.reduce((prev: Characters, curr: Quote) => {

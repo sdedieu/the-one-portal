@@ -16,14 +16,13 @@ export class LotrCharacterService {
 
   getAll(): Observable<Characters> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${environment.secretToken}`
+      'Content-Type': 'application/json'
     })
     if (!this._cachedCharacters$) {
       const stored = this._localStorageService.get<Characters>('characters');
       this._cachedCharacters$ = (stored
         ? of(stored)
-        : this._http.get<{ docs: Characters }>('https://the-one-api.dev/v2/character', { headers }).pipe(
+        : this._http.get<{ docs: Characters }>('http://localhost:3000/characters', { headers }).pipe(
           map(res => res.docs),
           tap(characters => this._localStorageService.set('characters', characters))
         )

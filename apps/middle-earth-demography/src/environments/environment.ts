@@ -5,7 +5,6 @@
 export const environment = {
   production: false,
   appName: 'Middle Hearth Demography',
-  secretToken: 'oO8hUoITRYivvAJOiw6h'
 };
 
 /*
