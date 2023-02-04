@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2020",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@the-one-portal/one-portal-shell-library": [
+        "libs/one-portal-shell-library/src/index.ts"
+      ],
+      "@the-one-portal/one-ui-library": ["libs/one-ui-library/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
