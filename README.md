@@ -13,10 +13,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 - Having [Node](https://nodejs.org/en) > 16 installed
 - Having [Git](https://git-scm.com/) installed
 
-### Backend 
+## Backend
 
-Make sure to have cloned [portal-backend repository](https://github.com/sdedieu/portal-backend).
-Then in its root folder, run the command `npm ci & node app.js`.
+**In order to work, all application need the [Portal Backend](https://github.com/sdedieu/portal-backend) to be running. To do so, follow the [documentation](https://github.com/sdedieu/portal-backend).**
 
 ### Portal
 
