@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/cor
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable, EMPTY, filter, map } from 'rxjs';
 import { CONFIG } from '../../config/config';
-import { version as portalVersion } from 'package.json';
 
 @Component({
   selector: 'lib-footer',
@@ -33,7 +32,7 @@ import { version as portalVersion } from 'package.json';
 })
 export class FooterComponent implements OnInit {
 
-  version = portalVersion;
+  version = 'v1.1.1';
   applicationNameAndVersion: string = '';
   route$: Observable<string> = EMPTY;
 
