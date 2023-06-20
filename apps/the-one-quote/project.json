@@ -108,5 +108,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["domain:the-one-quote", "type:app"]
 }

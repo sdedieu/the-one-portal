@@ -102,5 +102,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["domain:one-portal-shell", "type:app"]
 }

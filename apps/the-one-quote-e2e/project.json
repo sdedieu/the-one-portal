@@ -29,8 +29,6 @@
       }
     }
   },
-  "tags": [],
-  "implicitDependencies": [
-    "the-one-quote"
-  ]
+  "tags": ["e2e"],
+  "implicitDependencies": ["the-one-quote"]
 }

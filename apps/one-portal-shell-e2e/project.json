@@ -29,8 +29,6 @@
       }
     }
   },
-  "tags": [],
-  "implicitDependencies": [
-    "one-portal-shell"
-  ]
+  "tags": ["e2e"],
+  "implicitDependencies": ["one-portal-shell"]
 }

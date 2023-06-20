@@ -4,7 +4,6 @@ import { Observable } from "rxjs";
 
 @Injectable({ providedIn: 'root' })
 export class PortalPageResolver implements Resolve<null> {
-  constructor() {}
 
   resolve(
     route: ActivatedRouteSnapshot,

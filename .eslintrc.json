@@ -13,8 +13,40 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
+                "sourceTag": "e2e",
                 "onlyDependOnLibsWithTags": ["*"]
+              },
+              {
+                "sourceTag": "domain:one-portal-shell",
+                "onlyDependOnLibsWithTags": ["domain:one-portal-shell", "domain:shared", "domain:auth"]
+              },
+              {
+                "sourceTag": "domain:auth",
+                "onlyDependOnLibsWithTags": [
+                  "domain:auth", "domain:shared"
+                ]
+              },
+              {
+                "sourceTag": "domain:the-one-quote",
+                "onlyDependOnLibsWithTags": [
+                  "domain:the-one-quote",
+                  "domain:shared"
+                ]
+              },
+              {
+                "sourceTag": "domain:middle-earth-demography",
+                "onlyDependOnLibsWithTags": [
+                  "domain:middle-earth-demography",
+                  "domain:shared"
+                ]
+              },
+              {
+                "sourceTag": "type:app",
+                "onlyDependOnLibsWithTags": [
+                  "type:ui",
+                  "type:domain-logic",
+                  "type:util"
+                ]
               }
             ]
           }
