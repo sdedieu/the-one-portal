@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 import { LotrQuoteService } from './lotr-quote.service';
 import { Character, Characters } from '../interfaces/character';
 import { Quote } from '../interfaces/quote';
-import { LocalStorageService } from '@the-one-portal/one-ui-library';
+import { StorageService } from '@the-one-portal/shared-library';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class LotrCharacterService {
 
   private _http = inject(HttpClient);
   private _lotrQuoteService = inject(LotrQuoteService);
-  private _localStorageService = inject(LocalStorageService);
+  private _localStorageService = inject(StorageService);
   
   private _cachedCharacters$!: Observable<Characters>;
 

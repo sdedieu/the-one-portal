@@ -6,9 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { OnePortalShellLibraryModule } from '@the-one-portal/one-portal-shell-library';
-import { OneUiLibraryModule } from '@the-one-portal/one-ui-library';
-import { HomeComponent } from './home/home.component';
+import { ApplicationsCatalogModule } from '@the-one-portal/applications-catalog';
 
 import { routes } from './routes';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -19,19 +17,15 @@ import { PortalShellComponent } from './the-one-portal-shell.component';
   declarations: [
     PortalShellComponent,
     HeaderComponent,
-    FooterComponent,
-    HomeComponent
+    FooterComponent
   ],
   imports: [
-    OnePortalShellLibraryModule,
-    OneUiLibraryModule,
+    ApplicationsCatalogModule,
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    HttpClientModule,
-    MatIconModule,
-    MatChipsModule
+    MatIconModule
   ],
   providers: [],
   bootstrap: [PortalShellComponent]

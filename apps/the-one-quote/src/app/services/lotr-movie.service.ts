@@ -1,10 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { LocalStorageService } from '@the-one-portal/one-ui-library';
+import { StorageService } from '@the-one-portal/shared-library';
 import { Observable, tap, map, shareReplay, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Movies } from '../interfaces/movie';
-import { LotrQuoteService } from './lotr-quote.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +11,7 @@ import { LotrQuoteService } from './lotr-quote.service';
 export class LotrMovieService {
 
   private _http = inject(HttpClient);
-  private _lotrQuoteService = inject(LotrQuoteService);
-  private _localStorageService = inject(LocalStorageService);
+  private _localStorageService = inject(StorageService);
 
   private _cachedMovies$!: Observable<Movies>;
 

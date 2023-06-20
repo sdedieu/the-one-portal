@@ -1,14 +1,13 @@
 import { Routes } from "@angular/router";
-import { IsLoggedInGuard } from "./auth";
-import { HomeComponent } from "./home/home.component";
+import { IsLoggedInGuard } from "@the-one-portal/auth";
 import { loadRemoteModule } from '@angular-architects/module-federation';
 import { PortalPageResolver } from "./resolvers/portal-page.resolver";
 
 export const routes: Routes = [
-  { path: 'home', canActivate: [IsLoggedInGuard], component: HomeComponent, resolve: { appName: PortalPageResolver } },
+  { path: 'home', canActivate: [IsLoggedInGuard], loadChildren: async () => (await import('@the-one-portal/applications-catalog')).ApplicationsCatalogModule, resolve: { appName: PortalPageResolver } },
   {
     path: 'auth', loadChildren: async () =>
-      (await import('./auth/auth.module')).AuthModule, resolve: { appName: PortalPageResolver }
+      (await import('@the-one-portal/auth')).AuthModule, resolve: { appName: PortalPageResolver }
   },
   {
     path: 'demography', loadChildren: async () =>

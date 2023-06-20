@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
-import { LocalStorageService } from '@the-one-portal/one-ui-library';
-import { EMPTY, shareReplay, map, Observable, tap, of } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { StorageService } from '@the-one-portal/shared-library';
+import { shareReplay, map, Observable, tap, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Character, CharacterRaceFilter, CharacterRealm, Characters } from '../interfaces/character';
 
@@ -10,7 +10,7 @@ import { Character, CharacterRaceFilter, CharacterRealm, Characters } from '../i
 })
 export class LotrCharacterService {
   
-  constructor(private _http: HttpClient, private _localStorageService: LocalStorageService){}
+  constructor(private _http: HttpClient, private _localStorageService: StorageService){}
   
   private _cachedCharacters$!: Observable<Characters>;
 

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { LocalStorageService } from '@the-one-portal/one-ui-library';
+import { StorageService } from '@the-one-portal/shared-library';
 import { concatMap, of, scan } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { Observable, tap, shareReplay } from 'rxjs';
@@ -14,7 +14,7 @@ import { Quotes } from '../interfaces/quote';
 export class LotrQuoteService {
 
   private _http = inject(HttpClient);
-  private _localStorageService = inject(LocalStorageService);
+  private _localStorageService = inject(StorageService);
 
   private _cachedQuotes$!: Observable<Quotes>;
 

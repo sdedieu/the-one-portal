@@ -17,10 +17,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@the-one-portal/one-portal-shell-library": [
-        "libs/one-portal-shell-library/src/index.ts"
+      "@the-one-portal/applications-catalog": [
+        "libs/applications-catalog/src/index.ts"
       ],
-      "@the-one-portal/one-ui-library": ["libs/one-ui-library/src/index.ts"]
+      "@the-one-portal/auth": ["libs/auth/src/index.ts"],
+      "@the-one-portal/one-ui-library": ["libs/one-ui-library/src/index.ts"],
+      "@the-one-portal/shared-library": ["libs/shared-library/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

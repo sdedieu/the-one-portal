@@ -1,11 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
-import { ActivatedRoute, NavigationEnd, Router, UrlSegment } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { combineLatest, EMPTY, fromEvent, Observable } from 'rxjs';
-import { filter, map, startWith, tap } from 'rxjs/operators';
-import { AuthService } from '../../auth';
-import { User } from '../../auth/models/user';
-import { CONFIG } from '../../config/config';
+import { filter, map, startWith } from 'rxjs/operators';
+import { AuthService, User } from '@the-one-portal/auth';
 
 @Component({
   selector: 'one-portal-shell-header',
