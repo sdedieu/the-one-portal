@@ -12,6 +12,7 @@ import { routes } from './routes';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { PortalShellComponent } from './the-one-portal-shell.component';
+import { SharedLibraryModule } from '@the-one-portal/shared-library';
 
 @NgModule({
   declarations: [
@@ -20,11 +21,11 @@ import { PortalShellComponent } from './the-one-portal-shell.component';
     FooterComponent
   ],
   imports: [
-    ApplicationsCatalogModule,
-    CommonModule,
+    SharedLibraryModule,
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
+    ApplicationsCatalogModule,
     MatIconModule
   ],
   providers: [],
